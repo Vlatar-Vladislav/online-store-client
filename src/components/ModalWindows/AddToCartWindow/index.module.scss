@@ -1,0 +1,164 @@
+.modal {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    top: 0px;
+    left: 0px;
+    z-index: 90;
+
+    &_container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+
+        width: 500px;
+        height: 90%;
+        background-color: rgba(255, 255, 255, 0.9);
+        z-index: 91;
+        border-radius: 30px;
+        overflow: hidden;
+    }
+}
+
+.name {
+    display: flex;
+    justify-content: center;
+    
+    margin-top: 20px;
+    width: 100%;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.product {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    height: 50%;
+    width: 80%;
+
+    &_image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40%;
+        height: 100%;
+
+        &_img {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+
+    &_description {
+        position: absolute;
+        top: calc(50% - 125px);
+        right: 0px;
+        height: 250px;
+        width: 220px;
+        border-radius: 25px;
+        border: 2px solid rgb(224, 145, 0);
+    }
+}
+
+.quantity_block {
+    position: absolute;
+    bottom: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+    width: 100%;
+
+    &_button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background-color: rgb(224, 145, 0);
+        border: none;
+        border-radius: 10px;
+        height: 48px;
+        width: 48px;
+        font-size: 26px;
+        font-weight: 600;
+        color: white;
+
+        &:hover {
+            cursor: pointer;
+            background-color: rgb(224, 186, 94);
+        }
+
+        &:disabled {
+            background-color: gray;
+
+            &:hover {
+                background-color: rgb(180, 180, 180);
+            }
+        }
+    }
+
+    &_counter {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        width: 150px;
+        height: 48px;
+
+        &_value {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 24px;           
+            font-weight: 700;
+        }
+
+        &_quantity {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            color: rgb(73, 73, 73);
+            font-size: 14px;
+            font-weight: 500;
+        }
+    }
+
+    &_buy {
+        margin-left: 50px;
+        height: 48px;
+        padding: 0px 10px;
+        border-radius: 10px;
+        border: none;
+        background-color: rgb(224, 145, 0);
+        color: white;
+        font-size: 18px;
+        font-weight: 500;
+
+        &:hover {
+            cursor: pointer;
+            background-color: rgb(224, 186, 94);
+        }
+
+        &:disabled {
+            background-color: gray;
+
+            &:hover {
+                background-color: rgb(180, 180, 180);
+            }
+        } 
+    }
+}

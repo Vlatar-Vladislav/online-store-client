@@ -1,0 +1,307 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    overflow: hidden;
+    width: 100%;
+    height: 365px;
+    padding: 20px 0px;
+
+    &_comments {
+        display: flex;
+        flex-direction: column;
+    
+        padding-top: 14px;
+        overflow: scroll;
+        width: 100%;
+        height: 100%;
+
+        &::-webkit-scrollbar{
+            width: 4px;
+            height: 0px;
+        }
+          
+        &::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0);
+            z-index: 1;
+        } 
+          
+        &::-webkit-scrollbar-thumb {
+            background-color: rgb(180, 180, 180);
+            border-radius: 20px;
+        }
+    }
+}
+
+.comment {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    margin: 0px 0px 20px 0px;
+    width: 98%;
+    padding: 10px 0px;
+    border: 2px solid rgb(224, 145, 0);
+    border-radius: 20px;
+
+    &_product {
+        display: flex;
+        flex-direction: row;
+
+        margin: 0px 80px 0px 20px;
+        color: rgb(224, 145, 0);
+        font-size: 14px;
+        font-weight: 800;
+
+        &_link {
+            margin-left: 10px;
+            color: rgb(224, 145, 0);
+            font-weight: 500;
+            text-decoration: none;
+
+            &:hover {
+                cursor: pointer;
+                color: red;
+            }
+        }
+    }
+
+    &_info {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        margin: 0px 20px;
+
+        &_star {
+            font-size: 20px;
+            color: grey;
+            margin: 0px 1px 0px 1px;
+            user-select: none;
+        
+            &_active {
+                font-size: 20px;
+                color: rgb(224, 145, 0);
+                margin: 0px 1px 0px 1px;
+                user-select: none;
+            }
+        }
+
+        &_time {
+            position: absolute;
+            right: 0px;
+            top: calc(50% - 7px);
+            color: rgb(224, 145, 0);
+            font-size: 12px;
+            font-weight: 600;
+        }
+    }
+
+    &_content {
+        display: flex;
+        flex-direction: column;
+        margin: 0px 20px;
+
+        &_main {
+            color: rgb(0, 0, 0);
+            font-size: 15px;
+            font-weight: 500;
+            hyphens: auto;
+            word-wrap: normal;
+        }
+
+        &_advantages {
+            color: rgb(0, 0, 0);
+            font-size: 15px;
+            font-weight: 500;
+            hyphens: auto;
+            word-wrap: normal;
+
+            &_static {
+                color: rgb(224, 145, 0);
+                font-size: 16px;
+                font-weight: 800; 
+            }
+        }
+
+        &_position_block {
+            display: flex;
+            flex-direction: row;
+        }
+    }
+
+    &_form {
+        display: flex;
+        flex-direction: column;
+        margin: 0px 20px;
+
+        &_input {
+            border: none;
+            background-color: rgba(0, 0, 0, 0);
+            outline: none;
+
+            color: rgb(0, 0, 0);
+            font-size: 15px;
+            font-weight: 500;
+            width: 100%;
+            height: 100px;
+
+            resize: none;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+
+            &::-webkit-scrollbar{
+                width: 4px;
+                height: 0px;
+            }
+              
+            &::-webkit-scrollbar-track {
+                background: rgba(255, 255, 255, 0);
+                z-index: 1;
+            } 
+              
+            &::-webkit-scrollbar-thumb {
+                background-color: rgb(180, 180, 180);
+                border-radius: 20px;
+            }
+
+            &_advantages {
+                border: none;
+                background-color: rgba(0, 0, 0, 0);
+                outline: none;
+                width: 100%;
+                height: 100px;
+
+                margin-top: 5px;
+                color: rgb(0, 0, 0);
+                font-size: 15px;
+                font-weight: 500;
+
+                resize: none;
+                white-space: pre-wrap;
+                word-wrap: break-word;
+
+                &::-webkit-scrollbar{
+                    width: 4px;
+                    height: 0px;
+                }
+                  
+                &::-webkit-scrollbar-track {
+                    background: rgba(255, 255, 255, 0);
+                    z-index: 1;
+                } 
+                  
+                &::-webkit-scrollbar-thumb {
+                    background-color: rgb(180, 180, 180);
+                    border-radius: 20px;
+                }
+            }
+        }
+
+        &_position_block {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    &_buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        position: absolute;
+        top: -14px;
+        right: 10px;
+
+        &_button_1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+            width: 28px;
+            height: 28px;
+            border: none;
+            border-radius: 50%;
+            background-color: rgb(224, 145, 0);
+
+            &:hover {
+                cursor: pointer;
+                background-color: rgb(224, 186, 94);
+            }
+        }
+
+        &_button_2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 28px;
+            height: 28px;
+            border: none;
+            border-radius: 50%;
+            background-color: red;
+
+            &:hover {
+                cursor: pointer;
+                background-color: rgb(255, 80, 80);
+            }
+        }
+
+        &_button_3 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+            width: 28px;
+            height: 28px;
+            border: none;
+            border-radius: 50%;
+            background-color: rgb(70, 220, 0);
+
+            &:hover {
+                cursor: pointer;
+                background-color: rgb(120, 243, 50);
+            }
+        }
+    }
+}
+
+.img {
+    width: 18px;
+    height: 18px;
+}
+
+.star_button {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    font-size: 22px;
+    color: grey;
+
+    &_active {
+        background-color: rgba(0, 0, 0, 0);
+        border: none;
+        font-size: 22px;
+        color: rgb(224, 145, 0);
+        
+        &:hover {
+            cursor: pointer;
+            color: red
+        }
+    }
+
+    &:hover {
+        cursor: pointer;
+        color: red
+    }
+}
+
+.no_comments {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 18px;
+    font-weight: 700;
+    width: 100%;
+    height: 90%;
+}

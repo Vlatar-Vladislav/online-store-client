@@ -1,0 +1,106 @@
+.product_add {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 92;
+
+    bottom: 40px;
+    right: -1000px;
+
+    height: 50px;
+    width: 500px;
+    color: white;
+    border: 2px solid white;
+    font-size: 20px;
+    border-radius: 20px;
+    background-color: rgb(224, 145, 0);
+    transition: right ease 0.5s;
+}
+
+.logout {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 92;
+
+    bottom: 40px;
+    right: -1000px;
+
+    height: 50px;
+    width: 500px;
+    color: white;
+    border: 2px solid white;
+    font-size: 20px;
+    border-radius: 20px;
+    background-color: rgb(255, 59, 59);
+    transition: right ease 0.5s;
+}
+
+.signin {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 92;
+
+    bottom: 40px;
+    right: -1000px;
+
+    height: 50px;
+    width: 500px;
+    color: white;
+    border: 2px solid white;
+    font-size: 20px;
+    border-radius: 20px;
+    background-color: yellowgreen;
+    transition: right ease 0.5s;
+}
+
+.signup {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 92;
+
+    bottom: 40px;
+    right: -1000px;
+
+    height: 50px;
+    width: 500px;
+    color: white;
+    border: 2px solid white;
+    font-size: 20px;
+    border-radius: 20px;
+    background-color: yellowgreen;
+    transition: right ease 0.5s;
+}
+
+.cross_button {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    top: -15px;
+    right: -15px;
+
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    border: 2px white solid;
+    border-radius: 15px;
+    color: white;
+
+    &_img {
+        width: 18px;
+        height: 18px;
+    }
+
+    &:hover {
+        cursor: pointer;
+        background-color: rgb(255, 101, 101);
+    }
+}

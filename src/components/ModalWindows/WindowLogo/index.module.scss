@@ -1,0 +1,29 @@
+.header {
+    // position: fixed;
+    // top: 0px;
+    // right: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgb(224, 145, 0);
+    width: 100%;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0px;
+
+    &_1 {
+        font-size: 40px;
+        color: rgb(9, 9, 9);
+        user-select: none;
+    }
+    &_2 {
+        font-size: 40px;
+        color: rgb(255, 255, 255);
+        user-select: none;
+    }
+}

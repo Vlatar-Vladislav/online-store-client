@@ -1,0 +1,103 @@
+.container {
+    position: relative;
+    width: 60%;
+    height: 70vh;
+
+    &_button_left {
+        position: absolute;
+        left: 20px;
+        top: calc(100% / 2 - 20px);
+
+        z-index: 2;
+        background-color: rgba(0, 0, 0, 0);
+        border: none;
+        width: 48px;
+        height: 48px;
+        
+        &:hover {
+            cursor: pointer;
+            background-color: rgba(30, 30, 30, 0.6);
+            border-radius: 8px;
+        }
+    }
+
+    &_button_right {
+        position: absolute;
+        right: 20px;
+        top: calc(100% / 2 - 20px);
+
+        z-index: 2;
+        background-color: rgba(0, 0, 0, 0);
+        border: none;
+        width: 48px;
+        height: 48px;
+
+        &:hover {
+            cursor: pointer;
+            background-color: rgba(30, 30, 30, 0.6);
+            border-radius: 8px;
+        }
+    }
+
+    &_carousel {
+        display: flex;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+
+        &_slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            min-width: 100%;
+            min-height: 100%;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+.image {
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.dot_container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 2;
+
+    width: 100%;
+    bottom: 10px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: rgb(120, 120, 120);
+    border-radius: 50%;
+    margin: 10px;
+    
+    &:hover {
+        cursor: pointer;
+    }
+
+    &_active {
+        width: 10px;
+        height: 10px;
+        background-color: rgb(224, 145, 0);
+        border-radius: 50%;
+        margin: 10px;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,25 @@
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 60px;
+    background-color: rgb(224, 145, 0);
+    border-radius: 10px;
+    overflow: hidden;
+
+    &_button {
+        flex: 1;
+        border: none;
+        height: 40px;
+        background-color: rgb(224, 145, 0);
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        
+        &:hover {
+            cursor: pointer;
+            background-color: rgb(224, 186, 94);
+        }
+    }
+}

@@ -1,0 +1,156 @@
+.modal {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    top: 0px;
+    left: 0px;
+    z-index: 80;
+
+    &_container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+
+        width: 400px;
+        height: 90%;
+        background-color: rgba(255, 255, 255, 0.9);
+        z-index: 81;
+        border-radius: 30px;
+        overflow: hidden;
+
+        &_content {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            margin: 20px;
+            width: 90%;
+            height: 100%;
+
+            &_name {
+                font-size: 30px;
+            }
+
+            &_form {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 80%;
+                margin-top: 20px;
+
+                &_2 {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    width: 80%;
+                    margin-top: 50px;
+                }
+            
+                &_button {
+                    background-color: rgb(224, 145, 0);
+                    border-radius: 20px;
+                    border: none;
+                    color: white;
+                    font-size: 18px;
+                    font-weight: 500;
+                    height: 40px;
+                    margin: 10px 0px;
+                    padding: 0px 20px;
+
+                    &:hover {
+                        cursor: pointer;
+                        background-color: rgb(224, 186, 94);
+                    }
+                }
+            }
+
+            &_or {
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                bottom: 0px;
+
+                border-top: 1.5px solid rgb(224, 145, 0);
+                padding-top: 15px;                
+                width: 80%;
+                font-size: 16px;
+
+                &_click {
+                    color: rgb(224, 145, 0);
+                    margin: 0px 10px;
+                    user-select: none;
+
+                    &:hover {
+                        cursor: pointer;
+                        color: rgb(224, 186, 94);
+                    }
+                }
+            }
+
+            &_or_2 {
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                bottom: 0px;
+
+                border-top: 1.5px solid rgb(224, 145, 0);
+                padding-top: 15px;                
+                width: 80%;
+                font-size: 16px;
+
+                &_click {
+                    color: rgb(224, 145, 0);
+                    margin: 0px 10px;
+                    user-select: none;
+
+                    &:hover {
+                        cursor: pointer;
+                        color: rgb(224, 186, 94);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    width: 100%;
+    margin: 3px 0px;
+
+    &_name {
+        font-size: 16px;
+        font-weight: 500;
+        margin-bottom: 3px;
+    }
+
+    &_input {
+        border: 2px solid rgb(224, 145, 0);
+        border-radius: 15px;
+        height: 30px;
+        width: 90%;
+        padding: 0px 10px;
+    }
+
+    &_error {
+        font-size: 14px;
+        color: red;
+        height: 16px;
+        margin-top: 2px;
+    }
+}
