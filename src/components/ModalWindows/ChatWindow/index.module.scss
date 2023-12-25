@@ -1,0 +1,156 @@
+.modal {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    top: 0px;
+    left: 0px;
+    z-index: 80;
+
+    &_container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+
+        width: 400px;
+        height: 90%;
+        background-color: rgba(255, 255, 255, 0.9);
+        z-index: 81;
+        border-radius: 30px;
+        overflow: hidden;
+    }
+}
+
+.messages {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    width: calc(100% - 40px);
+    height: calc(100% - 50px - 80px - 10px - 10px);
+    margin: 0px 20px 10px 20px;
+    overflow: scroll;
+
+    &::-webkit-scrollbar{
+        width: 0px;
+        height: 0px;
+    }
+
+    & > div {
+        position: relative;
+        width: 100%;
+        margin: 10px 0px;
+
+        & > span {
+            top: calc(50% - 7px);
+            font-size: 14px;
+        }
+    }
+
+    &_admin {
+        display: flex;
+        justify-content: start;
+
+        & > div {
+            border: 1.5px solid rgb(224, 145, 0);
+            border-radius: 10px;
+            width: calc(80% - 20px);
+            padding: 5px 10px;
+        }
+
+        & > span {
+            position: absolute;
+            right: 3%;
+        }
+    }
+
+    &_user {
+        display: flex;
+        justify-content: end;
+
+        & > div {
+            border: 1.5px solid rgb(224, 145, 0);
+            background-color: rgb(224, 145, 0);
+            border-radius: 10px;
+            width: calc(80% - 20px);
+            padding: 5px 10px;
+            color: white;
+        }
+
+        & > span {
+            position: absolute;
+            left: 3%;
+        }
+    }
+}
+
+.date {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.message_input {
+    display: flex;
+    align-items: center;
+    width: calc(100% - 40px);
+    height: 80px;
+    margin: 0px 20px 10px 20px;
+
+    & > textarea {
+        max-height: 50px;
+        height: 50px;
+        width: calc(100% - 40px - 20px - 20px);
+        margin: 0px 20px 0px 0px;
+        padding: 5px 10px;
+        resize: none;
+        border: none;
+        background-color: rgba(0, 0, 0, 0);
+        border-radius: 10px;
+        outline: 1.5px solid rgb(224, 145, 0);
+
+        &::-webkit-scrollbar{
+            width: 0px;
+            height: 0px;
+        }
+          
+        &::-webkit-scrollbar-track {
+            background: rgb(9, 9, 9);
+            z-index: 1;
+        } 
+          
+        &::-webkit-scrollbar-thumb {
+            background-color: rgb(40, 40, 40);
+            border-radius: 20px;
+        }
+          
+    }
+
+    & > button {
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        border: none;
+        background-color: rgba(0, 0, 0, 0);
+
+        &:hover > .svg > path {
+            fill: rgb(224, 186, 94);
+            stroke: rgb(224, 186, 94);
+        }
+
+        & > .svg {
+            width: 40px;
+            height: 40px;
+        }
+    }
+}
+
+// .svg {
+//     width: 40px;
+// }

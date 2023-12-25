@@ -18,7 +18,7 @@ const BreadCrumbs = ({pages}: {pages?: {name: string, link: string}[]}) => {
     return(
         <div className={styles.container}>
             <ul className={styles.breadcrumb}>
-                <li><Link className={styles.breadcrumb_home} href={`http://localhost:3000`}><img className={styles.ico} src="/ico/home-ico.svg"/></Link></li>
+                <li><Link className={styles.breadcrumb_home} href={`/`}><img className={styles.ico} src="/ico/home-ico.svg"/></Link></li>
                 {list}
             </ul>
         </div>

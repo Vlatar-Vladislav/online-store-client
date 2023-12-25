@@ -120,9 +120,9 @@ const Menu = () => {
                         <button className={styles.content_item} onClick={comparedOnClick}>Сравнение</button>
                     </div>
                     <div className={styles.content_group}>
-                        <Link className={styles.content_item} href={`http://localhost:3000`} onClick={() => {dispatch(setMenuWindowOpen(false))}}>Главная</Link>
-                        <Link className={styles.content_item} href={`http://localhost:3000/catalog`} onClick={() => {dispatch(setMenuWindowOpen(false))}}>Каталог</Link>
-                        <Link className={styles.content_item} href={`http://localhost:3000/catalog`}>О нас</Link>
+                        <Link className={styles.content_item} href={`/`} onClick={() => {dispatch(setMenuWindowOpen(false))}}>Главная</Link>
+                        <Link className={styles.content_item} href={`/catalog`} onClick={() => {dispatch(setMenuWindowOpen(false))}}>Каталог</Link>
+                        <Link className={styles.content_item} href={`/catalog`} onClick={() => {dispatch(setMenuWindowOpen(false))}}>О нас</Link>
                     </div>
                 </div>
             </div>

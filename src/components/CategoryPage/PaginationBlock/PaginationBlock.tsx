@@ -81,10 +81,10 @@ const PaginationBlock = ({category}: {category: string}) => {
             <Description category={category}/>
             {products && (products?.length === 0 ? <div className={styles.container_no}>Товаров не найдено!</div> : products.map((product, productIndex) => 
                 <div className={styles.product}>
-                    <Link className={styles.product_image} href={`http://localhost:3000/${product.id}`}>
+                    <Link className={styles.product_image} href={`/${product.id}`}>
                         <img className={styles.product_image_img} src={`http://localhost:7000/${product.images[0]}`}/>
                     </Link>                    
-                    <Link className={styles.product_name_link} href={`http://localhost:3000/${product.id}`}>
+                    <Link className={styles.product_name_link} href={`/${product.id}`}>
                         <h1 className={styles.product_name}>{product.name}</h1>
                     </Link>
                     <div className={styles.product_description}>
@@ -194,71 +194,3 @@ const PaginationBlock = ({category}: {category: string}) => {
     )
 }
 export default PaginationBlock
-
-
-    // let buttons = []
-    // if (currentPage <= 4 && currentPage > 0 && pages.length > 9) {
-    //     pages.slice(0, 7).map((p) => {  
-    //         buttons.push(          
-    //             <button
-    //                 className={currentPage === p ? styles.pagination_button_activated : styles.pagination_button} onClick={() => dispatch(setCurrentPage(p))}>{p}
-    //             </button>
-    //         )      
-    //     })
-    //     buttons.push(          
-    //         <button className={styles.pagination_button} onClick={() => dispatch(setCurrentPage(8))}>...</button>
-    //     )
-    //     buttons.push(          
-    //         <button
-    //             className={currentPage === pages[pages.length-1] ? styles.pagination_button_activated : styles.pagination_button} onClick={() => dispatch(setCurrentPage(pages[pages.length-1]))}>{pages[pages.length-1]}
-    //         </button>
-    //     )
-    // } else if(currentPage > pages.length-4 && currentPage <= pages.length && pages.length > 9){
-    //     buttons.push(          
-    //         <button
-    //             className={currentPage === pages[0] ? styles.pagination_button_activated : styles.pagination_button} onClick={() => dispatch(setCurrentPage(pages[0]))}>{pages[0]}
-    //         </button>
-    //     )
-    //     buttons.push(          
-    //         <button className={styles.pagination_button} onClick={() => dispatch(setCurrentPage(pages[pages.length-8]))}>...</button>
-    //     )
-    //     pages.slice(pages.length-7, pages.length).map((p, pIndex) => {  
-    //         buttons.push(          
-    //             <button key={pIndex}
-    //                 className={currentPage === p ? styles.pagination_button_activated : styles.pagination_button} onClick={() => dispatch(setCurrentPage(p))}>{p}
-    //             </button>
-    //         )      
-    //     })
-    // } else if(currentPage > 4 && currentPage <= pages.length-4 && pages.length > 9){
-    //     buttons.push(          
-    //         <button
-    //             className={currentPage === pages[0] ? styles.pagination_button_activated : styles.pagination_button} onClick={() => dispatch(setCurrentPage(pages[0]))}>{pages[0]}
-    //         </button>
-    //     )
-    //     buttons.push(          
-    //         <button key={Math.random().toString(36).substring(2, 9)} className={styles.pagination_button} onClick={() => dispatch(setCurrentPage(currentPage-3))}>...</button>
-    //     )
-    //     pages.slice(currentPage-3, currentPage+2).map((p, pIndex) => {  
-    //         buttons.push(
-    //             <button key={pIndex}
-    //                 className={currentPage === p ? styles.pagination_button_activated : styles.pagination_button} onClick={() => dispatch(setCurrentPage(p))}>{p}
-    //             </button>
-    //         )      
-    //     })        
-    //     buttons.push(          
-    //         <button key={Math.random().toString(36).substring(2, 9)} className={styles.pagination_button} onClick={() => dispatch(setCurrentPage(currentPage+3))}>...</button>
-    //     )
-    //     buttons.push(          
-    //         <button key={Math.random().toString(36).substring(2, 9)}
-    //             className={currentPage === pages[pages.length-1] ? styles.pagination_button_activated : styles.pagination_button} onClick={() => dispatch(setCurrentPage(pages[pages.length-1]))}>{pages[pages.length-1]}
-    //         </button>
-    //     )
-    // } else if(pages.length <= 9){
-    //     pages.map((p, pIndex) => {
-    //         buttons.push(
-    //             <button key={pIndex}
-    //                 className={currentPage === p ? styles.pagination_button_activated : styles.pagination_button} onClick={() => dispatch(setCurrentPage(p))}>{p}
-    //             </button>
-    //         )
-    //     })
-    // }

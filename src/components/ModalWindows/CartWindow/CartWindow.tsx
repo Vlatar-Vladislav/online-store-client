@@ -1,12 +1,13 @@
-import { isAddToCartWindowOpen, isAuthWindowOpen, isCartWindowOpen, isProfileWindowOpen } from "@/src/store/reducers/modalWindowsSlice"
+import { isAddToCartWindowOpen, isAuthWindowOpen, isCartWindowOpen, isProfileWindowOpen, setIsOrderAgainWindowOpen } from "@/src/store/reducers/modalWindowsSlice"
 import WindowLogo from "../WindowLogo/WindowLogo"
 import styles from "./index.module.scss"
 import { useAppDispatch, useAppSelector } from "@/src/hooks/redux"
 import { deleteAllCartItems, deleteCartItem, updateCartItem } from "@/src/services/cartService"
-import { setAddToCartProductId, setIsAuth, setUser } from "@/src/store/reducers/authSlice"
+import { setAddToCartProductId, setIsAuth, setIsOpen, setUser } from "@/src/store/reducers/authSlice"
 import { getMe } from "@/src/services/userService"
 import { setNotActivatedWindowTimer } from "@/src/store/reducers/alertWindowsSlice"
 import { useState } from "react"
+import { createOrder } from "@/src/services/orderService"
 
 const CartWindow = () => {
     const { isAuth, user } = useAppSelector(state => state.authReducer)
@@ -132,7 +133,39 @@ const CartWindow = () => {
                         <div className={styles.menu}>
                             <div className={styles.menu_total_cost}>Общая стоимость товаров: <span className={styles.menu_total_cost_value}>{totalСost.toFixed(2)}$</span></div>
                             <div className={styles.menu_buttons}>
-                                <button disabled={disabled} className={styles.menu_buttons_buy}>Оформить заказ</button>
+                                <button disabled={disabled} className={styles.menu_buttons_buy} onClick={async () => {
+                                    if(isAuth){
+                                        if(user.isActivated){
+                                            const responce = await createOrder()
+                                            if(responce.message === 'Ok'){
+                                                const data = await getMe()
+                                                if(data){
+                                                    dispatch(setIsAuth(true))
+                                                    dispatch(setUser(data))
+                                                    dispatch(setIsOpen('orders'))
+                                                    dispatch(isProfileWindowOpen(true))
+                                                } else{
+                                                    dispatch(setIsAuth(false))
+                                                    dispatch(isAuthWindowOpen(true))
+                                                }
+                                            } else if(responce.message === 'No products'){
+                                                console.log(responce.data)
+                                                dispatch(setIsOrderAgainWindowOpen(responce.data))
+                                            } else {
+                                                dispatch(setIsAuth(false))
+                                                dispatch(isAuthWindowOpen(true))
+                                            }
+                                        } else{
+                                            dispatch(setAddToCartProductId(null))
+                                            dispatch(setNotActivatedWindowTimer(3))
+                                            dispatch(isProfileWindowOpen(true))
+                                        }
+                                    } else{
+                                        dispatch(setAddToCartProductId(null))
+                                        dispatch(setIsAuth(false))
+                                        dispatch(isAuthWindowOpen(true))
+                                    }
+                                }}>Оформить заказ</button>
                                 <button className={styles.menu_buttons_delete} onClick={async () => {
                                     if(isAuth){
                                         if(user.isActivated){

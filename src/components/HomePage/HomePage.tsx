@@ -1,13 +1,28 @@
+'use client'
+
 import styles from "./index.module.scss"
 import ServiceMenu from "./ServiceMenu/ServiceMenu"
 import ProductsBlock from "./ProductsBlock/ProductsBlock"
 import { getExclusiveProducts } from "@/src/services/productsService"
 import BreadCrumbs from "../BreadCrumbs/BreadCrumbs"
+import { useEffect, useState } from "react"
 
 const HomePage = async () => {
     const hardware = await getExclusiveProducts('hardware')
     const parts = await getExclusiveProducts('parts')
     const accessories = await getExclusiveProducts('accessories')
+    // const [parts, setParts] = useState<any>()
+    // const [hardware, setHardware] = useState<any>()
+    // const [accessories, setAccessories] = useState<any>()
+
+    // useEffect(() => {
+    //     const getData = async () => {
+    //         setParts(await getExclusiveProducts('parts'))
+    //         setHardware(await getExclusiveProducts('hardware'))
+    //         setAccessories(await getExclusiveProducts('accessories'))
+    //     }
+    //     getData()
+    // }, [])
 
     return(
         <main className={styles.main}>

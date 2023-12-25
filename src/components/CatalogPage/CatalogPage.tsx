@@ -38,7 +38,7 @@ const CatalogPage = () => {
 
     return(
         <main className={styles.main}>
-            <BreadCrumbs pages={[{name: 'Каталог', link: 'http://localhost:3000/catalog'}]}/>
+            <BreadCrumbs pages={[{name: 'Каталог', link: `/catalog`}]}/>
             <CategoryBlock category={hardware}/>
             <CategoryBlock category={parts}/>
             <CategoryBlock category={accessories}/>

@@ -1,12 +1,9 @@
-import { FC, useEffect, useState } from "react"
+import { FC } from "react"
 import styles from "./index.module.scss"
 import ImagesBlock from "./ImagesBlock/ImagesBlock"
 import DescriptionBlock from "./DescriptionBlock/DescriptionBlock"
-import moment from "moment"
 import 'moment/locale/ru'
 import InfoBlock from "./InfoBlock/InfoBlock"
-import CharacteristicsBlock from "./InfoBlock/CharacteristicsBlock/CharacteristicsBlock"
-import ReviewsBlock from "./InfoBlock/ReviewsBlock/ReviewsBlock"
 import BreadCrumbs from "../BreadCrumbs/BreadCrumbs"
 import ProductsBlock from "../HomePage/ProductsBlock/ProductsBlock"
 import { getProducts } from "@/src/services/productsService"
@@ -55,14 +52,14 @@ const ProductPage: FC<IProductPage> = async ({product}: {product: IProduct}) => 
 
     return(
         <main className={styles.main}>
-            <BreadCrumbs pages={[{name: product.name, link: `http://localhost:3000/${product.id}`}]}/>
+            <BreadCrumbs pages={[{name: product.name, link: `/${product.id}`}]}/>
             <div className={styles.information_block}>
                 <ImagesBlock images={product.images}/>
                 <DescriptionBlock product={product}/>
             </div>
             <InfoBlock product={product}/>
-            <ProductsBlock header={"Также рекомендуемые товары"} link={`http://localhost:3000/catalog`} products={product.recommendedProducts}/>
-            <ProductsBlock header={"Другие товары из данной категории"} link={`http://localhost:3000/catalog/${product.mainCategory}`} products={products.rows}/>
+            <ProductsBlock header={"Также рекомендуемые товары"} link={`/catalog`} products={product.recommendedProducts}/>
+            <ProductsBlock header={"Другие товары из данной категории"} link={`/catalog/${product.mainCategory}`} products={products.rows}/>
         </main>
     )
 }

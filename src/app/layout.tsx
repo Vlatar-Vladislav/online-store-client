@@ -16,6 +16,7 @@ import MaxComparedWindow from '../components/AlertWindows/MaxCompared'
 import FavoriteAddWindow from '../components/AlertWindows/FavoriteAddWindow'
 import ComparedAddWindow from '../components/AlertWindows/ComparedAddWindow'
 import Menu from '../components/Menu/Menu'
+import ChatButton from '../components/ChatButton/ChatButton'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -35,6 +36,7 @@ export default function RootLayout({children,}: {children: React.ReactNode}){
           <div className={styles.general_container}>
             {children}
           </div>
+          <ChatButton/>
           <Footer/>
           {/* Всплывающие окна */}
           <ComparedAddWindow/>

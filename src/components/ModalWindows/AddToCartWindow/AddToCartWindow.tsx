@@ -29,13 +29,11 @@ const AddToCartWindow = () => {
 
     useEffect(() => {
         async function getData() {
-            console.log(addToCartProductId)
             if(addToCartProductId){
                 const data = await getProductById(addToCartProductId)
                 if(data){
                     setProduct(data)
                 }
-                console.log(data)
             } else{
                 dispatch(setAddToCartProductId(null))
                 dispatch(isAddToCartWindowOpen(false))               

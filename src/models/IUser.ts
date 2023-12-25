@@ -4,6 +4,7 @@ interface IUser {
     isBanned: boolean | null
     isActivated: boolean | null
     cartItems: ICartItem[] | null
+    orders: IOrder[] | null
     comments: IProductComment[] | null
     favoriteProducts: IProduct[] | null
     comparedProducts: IProduct[] | null

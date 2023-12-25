@@ -183,9 +183,9 @@ const Header: FC = () => {
                 <button className={`${styles.header_bottom_button} ${bagelFatOne.className}`} onClick={() => {
                     dispatch(setMenuWindowOpen(true))
                 }}>Меню</button>
-                <Link href={`http://localhost:3000`} className={`${styles.header_bottom_button} ${bagelFatOne.className}`}>Главная</Link>
-                <Link href={`http://localhost:3000/catalog`} className={`${styles.header_bottom_button} ${bagelFatOne.className}`}>Каталог</Link>
-                <Link href={`http://localhost:3000/catalog`} className={`${styles.header_bottom_button} ${bagelFatOne.className}`}>Конфигуратор</Link>
+                <Link href={`/`} className={`${styles.header_bottom_button} ${bagelFatOne.className}`}>Главная</Link>
+                <Link href={`/catalog`} className={`${styles.header_bottom_button} ${bagelFatOne.className}`}>Каталог</Link>
+                <Link href={`/catalog`} className={`${styles.header_bottom_button} ${bagelFatOne.className}`}>Конфигуратор</Link>
             </div>
         </header>
     )

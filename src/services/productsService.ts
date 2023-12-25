@@ -16,14 +16,34 @@ export const getProducts = async (category: string, page: number, limit: number,
 }
 
 // Получить эксклюзивные товары заданной категории
+// export const getExclusiveProducts = async (category: string) => {
+//     const response = await fetch(`http://localhost:7000/products/getexclusive/${category}`, {
+//         method: 'get'
+//     })
+//     if(!response.ok){
+//         throw new Error("Unable to fetch posts.")
+//     }
+//     return response.json()
+// }
+
 export const getExclusiveProducts = async (category: string) => {
-    const response = await fetch(`http://localhost:7000/products/getexclusive/${category}`, {
-        method: 'get'
-    })
-    if(!response.ok){
-        throw new Error("Unable to fetch posts.")
+    // const response = await fetch(`http://localhost:7000/products/getexclusive/${category}`, {
+    //     method: 'get'
+    // })
+    // if(!response.ok){
+    //     throw new Error("Unable to fetch posts.")
+    // }
+    try {
+        const response = await api.get(`http://localhost:7000/products/getexclusive/${category}?random=${Math.random()}`, {
+            headers: {
+                'Cache-Control': 'no-cache'
+            }
+        });
+        return response.data;
+    } catch (error) {
+        return null;
     }
-    return response.json()
+    // return response.json()
 }
 
 // Получить товар по id

@@ -2,40 +2,17 @@ import { useAppDispatch, useAppSelector } from "@/src/hooks/redux"
 import styles from "./index.module.scss"
 import { isAuthWindowOpen, isProfileWindowOpen } from "@/src/store/reducers/modalWindowsSlice"
 import WindowLogo from "../WindowLogo/WindowLogo"
-import { useState } from "react"
-import { setIsAuth, setTimerSendActivationLink } from "@/src/store/reducers/authSlice"
+import { useEffect, useState } from "react"
+import { setIsAuth, setIsOpen, setTimerSendActivationLink } from "@/src/store/reducers/authSlice"
 import ProfileBlock from "./ProfileBlock/ProfileBlock"
 import MyCommentsBlock from "./MyCommentsBlock/MyCommentsBlock"
 import { setNotActivatedWindowTimer } from "@/src/store/reducers/alertWindowsSlice"
 import { retryActivate } from "@/src/services/authService"
+import OrdersBlock from "./OrdersBlock/OrdersBlock"
 
 const ProfileWindow = () => {
-    const { isAuth, user, timerSendActivationLink } = useAppSelector(state => state.authReducer)
-    const [ profileOpen, setProfileOpen] = useState(true)
-    const [ commentsOpen, setCommentsOpen] = useState(false)
+    const { isAuth, user, timerSendActivationLink, open} = useAppSelector(state => state.authReducer)
     const dispatch = useAppDispatch()
-
-    const openProfile = () => {
-        setProfileOpen(true)
-        setCommentsOpen(false)
-    }
-
-    const openComments = () => {
-        if(isAuth){
-            if(user.isActivated){
-                setProfileOpen(false)
-                setCommentsOpen(true)
-            } else{
-                setProfileOpen(true)
-                setCommentsOpen(false)
-                dispatch(setNotActivatedWindowTimer(3))
-            }
-        } else{
-            dispatch(setIsAuth(false))
-            dispatch(isAuthWindowOpen(true))
-        }
-
-    }
 
     return(
         <div className={styles.modal} onClick={() => dispatch(isProfileWindowOpen(false))}>
@@ -48,27 +25,50 @@ const ProfileWindow = () => {
                             <div className={styles.isNotActiveted_retry}><button className={styles.isNotActiveted_retry_button} disabled={timerSendActivationLink > 0 ? true : false} onClick={async () => {
                                 dispatch(setTimerSendActivationLink(30))
                                 const responce = await retryActivate()
-                                console.log(responce)                                
                             }}>{timerSendActivationLink > 0 ? timerSendActivationLink : 'Отправить повторно'}</button></div>                      
                         </div>
                     }
                     <div className={styles.container}>
                         <div className={styles.container_menu}>
-                            <ul className={styles.container_menu_list}>
-                                <li className={styles.container_menu_list_item}>
-                                    <button className={styles.container_menu_list_item_button} onClick={openProfile}>Профиль</button>
-                                </li>
-                                <li className={styles.container_menu_list_item}>
-                                    <button className={styles.container_menu_list_item_button}>Заказы</button>
-                                </li>
-                                <li className={styles.container_menu_list_item}>
-                                    <button className={styles.container_menu_list_item_button} onClick={openComments}>Отзывы</button>
-                                </li>
-                            </ul>
+                            <button onClick={() => {
+                                if(isAuth){
+                                    dispatch(setIsOpen('profile'))
+                                } else{
+                                    dispatch(setIsAuth(false))
+                                    dispatch(isAuthWindowOpen(true))
+                                }
+                            }}>Профиль</button>
+                            <button onClick={() => {
+                                if(isAuth){
+                                    if(user.isActivated){
+                                        dispatch(setIsOpen('orders'))
+                                    } else{
+                                        dispatch(setIsOpen('profile'))
+                                        dispatch(setNotActivatedWindowTimer(3))
+                                    }
+                                } else{
+                                    dispatch(setIsAuth(false))
+                                    dispatch(isAuthWindowOpen(true))
+                                }
+                            }}>Заказы</button>
+                            <button onClick={() => {
+                                if(isAuth){
+                                    if(user.isActivated){
+                                        dispatch(setIsOpen('comments'))
+                                    } else{
+                                        dispatch(setIsOpen('profile'))
+                                        dispatch(setNotActivatedWindowTimer(3))
+                                    }
+                                } else{
+                                    dispatch(setIsAuth(false))
+                                    dispatch(isAuthWindowOpen(true))
+                                }  
+                            }}>Отзывы</button>
                         </div>
                         <div className={styles.container_content}>
-                            {profileOpen && <ProfileBlock/>}
-                            {commentsOpen && <MyCommentsBlock/>}
+                            {(open === 'profile' || !user.isActivated) && <ProfileBlock/>}
+                            {(open === 'orders' && user.isActivated) && <OrdersBlock/>}
+                            {(open === 'comments' && user.isActivated) && <MyCommentsBlock/>}
                         </div>
                     </div>
                 </div>

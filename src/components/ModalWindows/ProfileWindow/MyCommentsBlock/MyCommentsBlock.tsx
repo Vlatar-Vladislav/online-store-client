@@ -115,7 +115,7 @@ const MyCommentsBlock = () => {
                             </button>
                         </div>
                         <div className={styles.comment_product}>
-                            Товар:<Link onClick={() => dispatch(isProfileWindowOpen(false))} className={styles.comment_product_link} href={`http://localhost:3000/${comment.productId}`}>{comment.productName}</Link>
+                            Товар:<Link onClick={() => dispatch(isProfileWindowOpen(false))} className={styles.comment_product_link} href={`/${comment.productId}`}>{comment.productName}</Link>
                         </div>
                         <div className={styles.comment_info}>
                             {remake === comment.id ?

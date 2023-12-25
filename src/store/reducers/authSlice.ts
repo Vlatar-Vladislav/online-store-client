@@ -6,6 +6,7 @@ interface ExampleState {
     timerSendActivationLink: number
     user: IUser
     addToCartProductId: number | null
+    open: string
 }
 
 const initialState: ExampleState = {
@@ -13,7 +14,8 @@ const initialState: ExampleState = {
     commentDeleted: true,
     timerSendActivationLink: 0,
     user: {} as IUser,
-    addToCartProductId: null
+    addToCartProductId: null,
+    open: 'profile'
 }
 
 export const authSlice = createSlice({
@@ -22,7 +24,7 @@ export const authSlice = createSlice({
     reducers: {
         setIsAuth(state, action: PayloadAction<boolean>){
             state.isAuth = action.payload
-            state.user = {id: null, email: null, isActivated: null, isBanned: null, comments: null, cartItems: null, favoriteProducts: null, comparedProducts: null, createdAt: null, updatedAt: null}
+            state.user = {id: null, email: null, isActivated: null, isBanned: null, comments: null, orders: null, cartItems: null, favoriteProducts: null, comparedProducts: null, createdAt: null, updatedAt: null}
         },
         setCommentDeleted(state, action: PayloadAction<boolean>){
             state.commentDeleted = action.payload
@@ -40,10 +42,13 @@ export const authSlice = createSlice({
         },
         setAddToCartProductId(state, action: PayloadAction<number | null>){
             state.addToCartProductId = action.payload
+        },
+        setIsOpen(state, action: PayloadAction<string>){
+            state.open = action.payload
         }
     },
 })
 
-export const { setIsAuth, setCommentDeleted, setUser, setTimerSendActivationLink, setAddToCartProductId } = authSlice.actions
+export const { setIsAuth, setCommentDeleted, setUser, setTimerSendActivationLink, setAddToCartProductId, setIsOpen } = authSlice.actions
 
 export default authSlice.reducer

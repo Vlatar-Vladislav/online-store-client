@@ -81,7 +81,7 @@ const CategoryPage = ({category}: {category: string}) => {
 
     return(
         <main className={styles.main}>
-            <BreadCrumbs pages={[{name: 'Каталог', link: 'http://localhost:3000/catalog'}, {name: breadCrumb, link: `http://localhost:3000/catalog/${category}`}]}/>
+            <BreadCrumbs pages={[{name: 'Каталог', link: `/catalog`}, {name: breadCrumb, link: `/catalog/${category}`}]}/>
             <SearchBlock/>
             <FiltersInfoBlock/>
             <div className={styles.main_products}>

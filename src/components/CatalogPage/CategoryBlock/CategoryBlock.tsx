@@ -20,7 +20,7 @@ const CategoryBlock = ({category}: {category: ICategory}) => {
             <div className={styles.category_items}>
                 {category.categories.map((category) =>
                     <div className={styles.category_items_slide}>
-                        <Link href={`http://localhost:3000/catalog/${category.link}`} className={styles.category_item}>
+                        <Link href={`/catalog/${category.link}`} className={styles.category_item}>
                             <div className={styles.category_item_image}>
                                 <img className={styles.category_item_image_img} src={`./image/${category.img}`}/>
                             </div>
